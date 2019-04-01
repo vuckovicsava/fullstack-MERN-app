@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 // import routes
 const userRoutes = require('./routes/api/user');
@@ -8,6 +9,10 @@ const postRoutes = require('./routes/api/post');
 
 // initialize express app
 const app = express();
+
+// middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // database connection
 const db = require('./config/keys').mongoURI;
