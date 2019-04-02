@@ -19,11 +19,11 @@ module.exports = function validateRegister(data) {
   }
 
   // email
-  if (validator.isEmpty(data.email)) {
-    errors.email = 'Email is requried';
-  }
   if (!validator.isEmail(data.email)) {
     errors.email = 'Email is invalid';
+  }
+  if (validator.isEmpty(data.email)) {
+    errors.email = 'Email is requried';
   }
 
   // password
